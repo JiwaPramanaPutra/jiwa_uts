@@ -1,8 +1,7 @@
 /// Kumpulan fungsi validasi untuk form input.
 ///
 /// Digunakan pada halaman Login dan Lupa Password
-/// bersama dengan Form + GlobalKey<FormState>.
-
+/// bersama dengan Form + GlobalKey dan FormState.
 class Validators {
   // Regex pattern untuk validasi format email
   static final RegExp _emailRegex = RegExp(

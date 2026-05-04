@@ -92,14 +92,11 @@ class _DashboardScreenState extends State<DashboardScreen>
             ElevatedButton(
               onPressed: () {
                 Navigator.of(dialogContext).pop();
-                // pushAndRemoveUntil menghapus semua route sebelumnya
-                Navigator.pushAndRemoveUntil(
+                // pushAndRemoveUntil menghapus semua route dari navigation stack
+                // sehingga user tidak bisa kembali ke dashboard via back button
+                Navigator.pushNamedAndRemoveUntil(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => const _LogoutRedirect(),
-                    settings:
-                        const RouteSettings(name: AppConstants.loginRoute),
-                  ),
+                  AppConstants.loginRoute,
                   (Route<dynamic> route) => false,
                 );
               },
@@ -717,23 +714,6 @@ class _DashboardScreenState extends State<DashboardScreen>
           ),
         ],
       ),
-    );
-  }
-}
-
-/// Widget helper untuk redirect ke login saat logout.
-/// Digunakan agar pushAndRemoveUntil tetap menggunakan named route LoginScreen.
-class _LogoutRedirect extends StatelessWidget {
-  const _LogoutRedirect();
-
-  @override
-  Widget build(BuildContext context) {
-    // Redirect ke login route
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Navigator.pushReplacementNamed(context, AppConstants.loginRoute);
-    });
-    return const Scaffold(
-      body: Center(child: CircularProgressIndicator()),
     );
   }
 }

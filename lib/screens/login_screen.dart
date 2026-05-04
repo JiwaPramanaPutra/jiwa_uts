@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen>
 
   /// Proses login.
   ///
-  /// 1. Validasi form menggunakan GlobalKey<FormState>
+  /// 1. Validasi form menggunakan GlobalKey dan FormState
   /// 2. Set isLoading = true
   /// 3. Simulasi delay network call (2 detik)
   /// 4. Cek credential mock
