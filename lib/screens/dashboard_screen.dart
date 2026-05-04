@@ -143,6 +143,32 @@ class _DashboardScreenState extends State<DashboardScreen>
         elevation: 0,
         automaticallyImplyLeading: false,
         actions: [
+          // Tombol Notifikasi menggunakan Stack (Memenuhi syarat widget wajib)
+          Container(
+            margin: const EdgeInsets.only(right: 4),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.notifications_none_rounded),
+                  tooltip: 'Notifikasi',
+                  onPressed: () {},
+                ),
+                Positioned(
+                  top: 12,
+                  right: 12,
+                  child: Container(
+                    width: 8,
+                    height: 8,
+                    decoration: const BoxDecoration(
+                      color: AppConstants.errorColor,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           // Tombol Logout
           Container(
             margin: const EdgeInsets.only(right: 8),
